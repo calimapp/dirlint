@@ -1,0 +1,19 @@
+use clap::Parser;
+mod config;
+
+/// Mon super programme CLI
+#[derive(Parser, Debug)]
+#[command(name = "dirlint", version = env!("CARGO_PKG_VERSION"), about = "Un exemple avec clap")]
+struct Args {
+    directory: String,
+    #[arg(short, long, default_value = "config.yaml")]
+    config: String
+}
+
+fn main() {
+    let cli = Args::parse();
+
+    println!("processing: {:?}", cli.directory);
+    let config = config::load_config(&cli.config).unwrap();
+    println!("{:#?}", config.structure)
+}

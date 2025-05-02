@@ -1,0 +1,8 @@
+structure:
+  files:
+    - Cargo.toml
+    - README.md
+  folders:
+    src:
+      files:
+        - main.rs
