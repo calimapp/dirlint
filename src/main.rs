@@ -9,7 +9,7 @@ mod linter;
 #[command(name = "dirlint", version = env!("CARGO_PKG_VERSION"), about = "Un exemple avec clap")]
 struct Args {
     directory: String,
-    #[arg(short, long, default_value = "config.yaml")]
+    #[arg(short, long, default_value = ".dirlint.yaml")]
     config: String
 }
 
