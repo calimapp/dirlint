@@ -1,4 +1,4 @@
-use std::fs;
+use std::{collections::HashMap, fs};
 use serde_yaml;
 use serde::Deserialize;
 
@@ -12,8 +12,8 @@ pub struct Folder {
     #[serde(default)]
     pub files: Vec<String>,
 
-    #[serde(default)]
-    pub folders: std::collections::HashMap<String, Folder>,
+    #[serde(flatten)]
+    pub subfolders: HashMap<String, Folder>,
 }
 
 pub fn load_config(path: &str) -> Result<Config, Box<dyn std::error::Error>> {

@@ -1,5 +1,8 @@
+use std::path::Path;
+
 use clap::Parser;
 mod config;
+mod linter;
 
 /// Mon super programme CLI
 #[derive(Parser, Debug)]
@@ -15,5 +18,6 @@ fn main() {
 
     println!("processing: {:?}", cli.directory);
     let config = config::load_config(&cli.config).unwrap();
-    println!("{:#?}", config.structure)
+    let path = Path::new(&cli.directory);
+    linter::lint_directory(path, &config);
 }
