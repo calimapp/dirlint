@@ -1,6 +1,5 @@
 use std::path::Path;
 
-use clap::Error;
 
 use crate::config::{Config, Folder};
 
