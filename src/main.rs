@@ -21,5 +21,5 @@ fn main() {
     println!("processing: {:?}", cli.directory);
     let config = config::load_config(&cli.config).unwrap();
     let path = Path::new(&cli.directory);
-    let _ = linter::lint_directory(path, &config);
+    let _ = linter::lint_directory(path, &config, cli.strict);
 }
