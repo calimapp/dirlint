@@ -10,7 +10,9 @@ mod linter;
 struct Args {
     directory: String,
     #[arg(short, long, default_value = ".dirlint.yaml")]
-    config: String
+    config: String,
+    #[arg(long, help="Strictly validate directory (no additional files/folders allowed)")]
+    strict: bool,
 }
 
 fn main() {
