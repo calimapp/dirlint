@@ -10,7 +10,9 @@ mod linter;
 struct Args {
     directory: String,
     #[arg(short, long, default_value = ".dirlint.yaml")]
-    config: String
+    config: String,
+    #[arg(long, help="Strictly validate directory (no additional files/folders allowed)")]
+    strict: bool,
 }
 
 fn main() {
@@ -19,5 +21,5 @@ fn main() {
     println!("processing: {:?}", cli.directory);
     let config = config::load_config(&cli.config).unwrap();
     let path = Path::new(&cli.directory);
-    let _ = linter::lint_directory(path, &config);
+    let _ = linter::lint_directory(path, &config, cli.strict);
 }
