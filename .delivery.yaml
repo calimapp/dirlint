@@ -1,0 +1,34 @@
+structure:
+  conf:
+    dashboards:
+    event-dictionary:
+    metric-dictionary:
+    values:
+  helm:
+    files:
+    - Chart.yaml
+    - values.yaml
+    charts:
+  custom_libs:
+    .folder:
+      src:
+  docs:
+    .name:
+  microservices:
+    files:
+    - pom.xml
+    <element>-microservice:
+      files:
+      - Dockerfile
+      - <element>-microservice_X.X.X.tar
+      - pom.xml
+      bin:
+        .jar
+      libs:
+        .jar
+      src:
+        .java
+      
+    
+    
+  
